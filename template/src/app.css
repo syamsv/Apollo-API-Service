@@ -1,0 +1,17 @@
+*,*::before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.vertically {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0px;
+    border-bottom: 1px solid var(--cds-ui-04, #8d8d8d);
+}
