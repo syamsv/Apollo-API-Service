@@ -8,6 +8,5 @@ import (
 func MountAuthRoute(auth fiber.Router) {
 	auth.Post("/login", handler.AuthLogin)
 	auth.Post("/register", handler.AuthRegister)
-	auth.Get("/verify", handler.AuthTokenVerify)
-	auth.Post("/refresh", handler.AuthTokenRefresh)
+	auth.Get("/activate", handler.AuthActivateAccount)
 }

@@ -22,6 +22,10 @@ var (
 	REDIS_PASSWORD         = ""
 	JWT_ACCESS_KEY_SECRET  = ""
 	JWT_REFRESH_KEY_SECRET = ""
+	SMTP_SERVER            = ""
+	SMTP_PORT              = 0
+	SMTP_USER              = ""
+	SMTP_PASSWORD          = ""
 )
 
 func LoadConfig() {
@@ -43,4 +47,8 @@ func LoadConfig() {
 	REDIS_PASSWORD = viper.GetString("REDIS_PASSWORD")
 	JWT_ACCESS_KEY_SECRET = viper.GetString("JWT_ACCESS_KEY_SECRET")
 	JWT_REFRESH_KEY_SECRET = viper.GetString("JWT_REFRESH_KEY_SECRET")
+	SMTP_PASSWORD = viper.GetString("SMTP_PASSWORD")
+	SMTP_SERVER = viper.GetString("SMTP_SERVER")
+	SMTP_PORT = viper.GetInt("SMTP_PORT")
+	SMTP_USER = viper.GetString("SMTP_USER")
 }

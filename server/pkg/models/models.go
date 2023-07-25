@@ -8,7 +8,6 @@ type Users struct {
 	Password  string    `json:"password" gorm:"not null" validate:"required,min=6,max=15"`
 	FirstName string    `json:"firstname" gorm:"not null" validate:"required"`
 	LastName  string    `json:"lastname" gorm:"not null" validate:"required"`
-	Role      string    `json:"-" gorm:"not null"`
 	CreatedAt int       `json:"created_at" gorm:"not null"`
 	UpdatedAt int       `json:"updated_at" gorm:"not null"`
 }

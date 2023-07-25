@@ -10,12 +10,21 @@ import (
 
 type Manager struct {
 	Api    *cache.Cache
+	Auth   *cache.Cache
 	Verify *cache.Cache
 }
 
 var manager Manager
 
 func InitSession() {
+	AuthConfig := cache.RedisConfig{
+		Host:         config.REDIS_HOST,
+		Port:         config.REDIS_PORT,
+		Password:     config.REDIS_PASSWORD,
+		DB:           2,
+		MaxRetries:   3,
+		RetryBackoff: 2 * time.Second,
+	}
 	verifyConfig := cache.RedisConfig{
 		Host:         config.REDIS_HOST,
 		Port:         config.REDIS_PORT,
@@ -41,9 +50,13 @@ func InitSession() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	authConfig, err := cache.NewCache(AuthConfig)
+	if err != nil {
+		log.Fatal(err)
+	}
 	manager = Manager{
 		Api:    apiCache,
 		Verify: verifyCache,
+		Auth:   authConfig,
 	}
 }
